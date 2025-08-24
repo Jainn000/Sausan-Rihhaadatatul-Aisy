@@ -576,10 +576,6 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
   font-size: clamp(12px, 2.5vw, 16px);
 }
 
-.message {
-  height: 86px;
-}
-
 .sendMessage-btn {
   cursor: pointer;
   margin: 2em 0 3em 0;
@@ -774,6 +770,7 @@ footer {
     background-color: var(--primary) !important;
   }
 }
+
 
 
 
