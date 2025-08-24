@@ -10,7 +10,7 @@ body {
 
 /* header */
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   display: flex;
@@ -692,4 +692,5 @@ footer {
     padding: 10px 15px;
     font-size: 12px;
   }
+
 }
