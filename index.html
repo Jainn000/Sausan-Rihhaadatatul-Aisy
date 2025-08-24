@@ -166,16 +166,21 @@
                     <p class="form-heading">Contact Me</p>
 
                     <div class="form-field">
-                        <input id="subject" name="subject" required placeholder="Name" class="input-field" type="text" />
+                        <input id="name" name="name" required placeholder="Name" class="input-field" type="text" />
                     </div>
 
                     <div class="form-field">
                         <input id="email" name="email" required placeholder="Email" class="input-field" type="email" />
                     </div>
 
-                    <div class="form-field full-width message">
-                        <input id="message" name="message" placeholder="Message" class="input-field"
+                    <div class="form-field full-width">
+                        <input id="subject" name="subject" required placeholder="Subject" class="input-field"
                             type="text" />
+                    </div>
+
+                    <div class="form-field full-width">
+                        <textarea id="message" name="message" required placeholder="Message" cols="30" rows="4"
+                            class="input-field"></textarea>
                     </div>
 
                     <button type="submit" class="sendMessage-btn">Send Message</button>
@@ -242,8 +247,3 @@
 </body>
 
 </html>
-
-
-
-
-
