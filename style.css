@@ -1,8 +1,8 @@
 /* CSS Variables */
 :root {
-  --primary: #ff4fa3;    /* Pink - mengganti abu-abu */
-  --secondary: #faff00;  /* Yellow - mengganti biru/cyan */
-  --secondary-dark: #b8bb00; /* Dark yellow untuk better contrast */
+  --primary: #ff4fa3;    
+  --secondary: #faff00;  
+  --secondary-dark: #b8bb00; 
 }
 
 *,
@@ -769,3 +769,4 @@ footer {
     background-color: var(--primary) !important;
   }
 }
+
