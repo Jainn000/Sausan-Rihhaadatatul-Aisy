@@ -577,7 +577,7 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
 }
 
 .message {
-  height: 34px;
+  height: 86px;
 }
 
 .sendMessage-btn {
@@ -774,5 +774,6 @@ footer {
     background-color: var(--primary) !important;
   }
 }
+
 
 
