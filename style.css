@@ -1,8 +1,8 @@
 /* CSS Variables */
 :root {
-  --primary: #ff4fa3;    
-  --secondary: #faff00;  
-  --secondary-dark: #b8bb00; 
+  --primary: #ff4fa3;    /* Pink - mengganti abu-abu */
+  --secondary: #faff00;  /* Yellow - mengganti biru/cyan */
+  --secondary-dark: #b8bb00; /* Dark yellow untuk better contrast */
 }
 
 *,
@@ -15,7 +15,6 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Fix untuk background body agar pink */
 html, body {
   background-color: var(--primary);
   min-height: 100vh;
@@ -23,8 +22,11 @@ html, body {
 
 /* header */
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -35,6 +37,8 @@ nav {
   border-bottom: 1px solid var(--secondary);
   box-shadow: 0 1px 10px rgba(250, 255, 0, 0.2);
   color: var(--primary);
+  height: 70px;
+  box-sizing: border-box;
 }
 
 .logo h1 {
@@ -124,6 +128,7 @@ li a {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     transition: 0.3s;
+    z-index: 999;
   }
   
   .menu.active {
@@ -140,7 +145,7 @@ li a {
   }
 }
 
-/* main - Pastikan background pink */
+/* main - Pastikan background pink dan menempel dengan navbar */
 main {
   display: flex;
   justify-content: center;
@@ -148,9 +153,10 @@ main {
   min-height: 100vh;
   background-color: var(--primary);
   color: #fff;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
+  padding-top: 70px; /* Sesuai tinggi navbar */
+  margin: 0;
   /* Fix untuk mobile viewport */
-  padding-top: max(20px, env(safe-area-inset-top));
 }
 
 .container {
@@ -310,9 +316,16 @@ main {
 
 @media (max-width: 768px) {
   /* Fix khusus untuk mobile */
+  nav {
+    padding: 12px 15px;
+    height: 60px;
+  }
+  
   main {
-    min-height: calc(100vh - 70px);
-    padding: 15px;
+    min-height: calc(100vh - 60px);
+    padding: 0 15px 15px 15px;
+    padding-top: 60px; /* Sesuai tinggi navbar mobile */
+    background-color: var(--primary) !important;
   }
   
   .container {
@@ -336,6 +349,12 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  /* Update menu mobile untuk height baru */
+  .menu {
+    top: 60px;
+    height: calc(100vh - 60px);
   }
 }
 
@@ -702,18 +721,20 @@ footer {
 /* Additional responsive fixes */
 @media (max-width: 480px) {
   nav {
-    padding: 10px 15px;
+    padding: 10px 12px;
+    height: 55px;
   }
   
   /* Pastikan main section memiliki background pink yang konsisten */
   main {
-    padding: 10px;
-    min-height: calc(100vh - 60px);
+    padding: 0 10px 10px 10px;
+    padding-top: 55px; /* Sesuai tinggi navbar very small mobile */
+    min-height: calc(100vh - 55px);
     background-color: var(--primary) !important;
   }
   
   .container {
-    margin: 10px;
+    margin: 10px 0;
   }
   
   .about,
@@ -728,6 +749,12 @@ footer {
   .tab {
     padding: 10px 15px;
     font-size: 12px;
+  }
+
+  /* Update menu mobile untuk height baru */
+  .menu {
+    top: 55px;
+    height: calc(100vh - 55px);
   }
 }
 
