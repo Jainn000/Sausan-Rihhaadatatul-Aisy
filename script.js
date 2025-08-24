@@ -44,8 +44,8 @@
 
             // Send email
             emailjs.send('service_zr2qceh', 'template_31746v1', {
-                from_name: name,
-                from_email: email,
+                name: name,
+                email: email,
                 subject: subject,
                 message: message
             })
