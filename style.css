@@ -32,7 +32,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background: rgba(255, 255, 255, 0.95);
+  background: #333333;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--secondary);
   box-shadow: 0 1px 10px rgba(250, 255, 0, 0.2);
