@@ -1,3 +1,10 @@
+/* CSS Variables */
+:root {
+  --primary: #ff4fa3;    
+  --secondary: #faff00;  
+  --secondary-dark: #b8bb00; 
+}
+
 *,
 html,
 body {
@@ -8,27 +15,33 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Fix untuk background body agar pink */
+html, body {
+  background-color: var(--primary);
+  min-height: 100vh;
+}
+
 /* header */
 nav {
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid #0ef;
-  box-shadow: 0 1px 10px rgba(0, 238, 255, 0.2);
-  color: #fff;
+  border-bottom: 1px solid var(--secondary);
+  box-shadow: 0 1px 10px rgba(250, 255, 0, 0.2);
+  color: var(--primary);
 }
 
 .logo h1 {
   font-size: clamp(18px, 4vw, 24px);
   font-weight: bold;
   margin-left: clamp(10px, 3vw, 30px);
+  color: var(--primary);
 }
 
 .menu ul {
@@ -45,7 +58,7 @@ nav {
 }
 
 li:hover {
-  color: #0ef;
+  color: var(--secondary);
   scale: 110%;
 }
 
@@ -53,7 +66,7 @@ li::after {
   content: "";
   display: block;
   padding-bottom: 4px;
-  border-bottom: 2px solid #0ef;
+  border-bottom: 2px solid var(--secondary);
   transform: scaleX(0);
   transition: 0.2s linear;
 }
@@ -64,7 +77,7 @@ li:hover::after {
 
 li a {
   text-decoration: none;
-  color: #fff;
+  color: var(--primary);
 }
 
 /* Hamburger menu untuk mobile */
@@ -79,7 +92,7 @@ li a {
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: #fff;
+  background: var(--primary);
   transition: all 0.3s ease;
   transform-origin: center;
 }
@@ -108,7 +121,8 @@ li a {
     right: -100%;
     width: 100%;
     height: calc(100vh - 70px);
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     transition: 0.3s;
   }
   
@@ -126,15 +140,17 @@ li a {
   }
 }
 
-/* main */
+/* main - Pastikan background pink */
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 92vh;
-  background-color: #333;
+  min-height: 100vh;
+  background-color: var(--primary);
   color: #fff;
   padding: 20px;
+  /* Fix untuk mobile viewport */
+  padding-top: max(20px, env(safe-area-inset-top));
 }
 
 .container {
@@ -177,8 +193,8 @@ main {
 }
 
 .typing {
-  color: #0ef;
-  border-right: 2px solid #0ef;
+  color: var(--secondary);
+  border-right: 2px solid var(--secondary);
   white-space: nowrap;
   overflow: hidden;
   animation: typing 4s steps(17) infinite, blink 0.8s infinite;
@@ -201,7 +217,7 @@ main {
 
 @keyframes blink {
   0%, 50% {
-    border-color: #0ef;
+    border-color: var(--secondary);
   }
   51%, 100% {
     border-color: transparent;
@@ -216,7 +232,7 @@ main {
 
 .btn {
   margin-top: 24px;
-  --color: #0ef;
+  --color: var(--secondary);
   --color2: rgb(10, 25, 30);
   padding: clamp(16px, 3vw, 24px) clamp(30px, 5vw, 46px);
   background-color: transparent;
@@ -275,8 +291,8 @@ main {
   width: clamp(250px, 30vw, 450px);
   height: clamp(250px, 30vw, 450px);
   border-radius: 50%;
-  border: 2px solid #0ef;
-  box-shadow: 0 0 20px #0ef;
+  border: 2px solid var(--secondary);
+  box-shadow: 0 0 20px var(--secondary);
   overflow: hidden;
 }
 
@@ -293,10 +309,17 @@ main {
 }
 
 @media (max-width: 768px) {
+  /* Fix khusus untuk mobile */
+  main {
+    min-height: calc(100vh - 70px);
+    padding: 15px;
+  }
+  
   .container {
     flex-direction: column-reverse;
     text-align: center;
     gap: 30px;
+    margin: 15px 0;
   }
   
   .foto {
@@ -318,7 +341,7 @@ main {
 
 /* about */
 .about {
-  background-color: #333;
+  background-color: var(--primary);
   color: #fff;
   padding: 20px;
 }
@@ -346,11 +369,11 @@ main {
 }
 
 .tab {
-  background: #2c2c2c;
+  background: #ffffff;
   padding: clamp(12px, 3vw, 20px) clamp(16px, 4vw, 30px);
   border-radius: 30px;
   cursor: pointer;
-  color: #ccc;
+  color: var(--primary);
   transition: ease all 0.5s;
   font-size: clamp(12px, 2.5vw, 16px);
 }
@@ -358,13 +381,13 @@ main {
 input#tab1:checked ~ .tabs label[for="tab1"],
 input#tab2:checked ~ .tabs label[for="tab2"],
 input#tab3:checked ~ .tabs label[for="tab3"] {
-  background: #0ef;
-  color: black;
-  box-shadow: 0 0 15px #0ef;
+  background: var(--secondary);
+  color: #000000;
+  box-shadow: 0 0 15px var(--secondary);
 }
 
 .content {
-  background: #333;
+  background: var(--primary);
   padding: clamp(12px, 3vw, 24px);
   border-radius: 15px;
   min-height: auto;
@@ -408,7 +431,7 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
 .card2 {
   width: 100%;
   height: 100%;
-  background-color: #1a1a1a;
+  background-color: #ffffff;
   border-radius: 20px;
   transition: all 0.2s;
   line-height: 32px;
@@ -418,11 +441,22 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
   align-items: center;
   text-align: center;
   padding: clamp(10px, 3vw, 14px);
+  color: var(--primary);
 }
 
 .card2 h1 {
   font-size: clamp(18px, 4vw, 32px);
   margin-bottom: 16px;
+}
+
+/* Override untuk text yang seharusnya kuning tapi sulit dibaca */
+.card2 .yellow-heading {
+  color: #333333 !important;
+  font-weight: bold;
+}
+
+.card2 .yellow-text {
+  color: #333333 !important;
 }
 
 .card2 p {
@@ -433,7 +467,7 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
 .card2:hover {
   transform: scale(0.99);
   border-radius: 20px;
-  color: #0ef;
+  color: var(--primary);
 }
 
 .card:hover {
@@ -450,13 +484,13 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
 
 /* contact */
 .contact {
-  background-color: #333;
+  background-color: var(--primary);
   color: #fff;
   padding: 20px;
 }
 
 .form-card1 {
-  background-image: linear-gradient(163deg, #64ffda 0%, #64ffda 100%);
+  background-image: linear-gradient(163deg, var(--secondary) 0%, var(--secondary) 100%);
   border-radius: 22px;
   transition: all 0.3s;
   max-width: 1200px;
@@ -472,7 +506,7 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
 }
 
 .form-card2 {
-  background-color: #333;
+  background-color: var(--primary);
   border-radius: 20px;
   transition: all 0.2s;
 }
@@ -485,14 +519,14 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
   font-family: inherit;
   gap: 10px;
   padding: clamp(1em, 3vw, 2em);
-  background-color: #333;
+  background-color: var(--primary);
   border-radius: 20px;
 }
 
 .form-heading {
   text-align: center;
   margin: clamp(1em, 3vw, 2em);
-  color: #64ffda;
+  color: var(--secondary);
   font-size: clamp(18px, 4vw, 24px);
   background-color: transparent;
   align-self: center;
@@ -507,9 +541,9 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
   padding: clamp(12px, 3vw, 24px);
   border: none;
   outline: none;
-  color: white;
-  background-color: #1c1c1c;
-  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  color: var(--primary);
+  background-color: #ffffff;
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .input-field {
@@ -517,7 +551,7 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
   border: none;
   outline: none;
   width: 100%;
-  color: #ccd6f6;
+  color: var(--primary);
   padding-inline: 1em;
   font-size: clamp(12px, 2.5vw, 16px);
 }
@@ -530,24 +564,24 @@ input#tab3:checked ~ .tabs label[for="tab3"] {
   border: none;
   outline: none;
   background-color: transparent;
-  color: #64ffda;
+  color: var(--secondary);
   font-weight: bold;
-  outline: 1px solid #64ffda;
+  outline: 1px solid var(--secondary);
   transition: all ease-in-out 0.3s;
   font-size: clamp(12px, 2.5vw, 16px);
 }
 
 .sendMessage-btn:hover {
-  background-color: #64ffda;
-  color: #000;
+  background-color: var(--secondary);
+  color: #000000;
   cursor: pointer;
-  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* footer */
 footer {
-  background-color: #1a1a1a;
-  color: #fff;
+  background-color: #ffffff;
+  color: var(--primary);
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -573,7 +607,7 @@ footer {
 .socialContainer {
   width: clamp(40px, 8vw, 52px);
   height: clamp(40px, 8vw, 52px);
-  background-color: rgb(44, 44, 44);
+  background-color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -616,7 +650,7 @@ footer {
 }
 
 .socialSvg path {
-  fill: rgb(255, 255, 255);
+  fill: #ffffff;
 }
 
 .socialContainer:hover .socialSvg {
@@ -647,13 +681,13 @@ footer {
   font-size: clamp(12px, 2.5vw, 14px);
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: #fff;
+  color: var(--primary);
   transition: ease-in-out 0.3s;
   cursor: pointer;
 }
 
 .text p:hover {
-  color: #0ef;
+  color: var(--secondary);
 }
 
 .text2 {
@@ -662,7 +696,7 @@ footer {
 
 .text2 p {
   font-size: clamp(10px, 2vw, 12px);
-  color: #ccc;
+  color: #888;
 }
 
 /* Additional responsive fixes */
@@ -671,9 +705,11 @@ footer {
     padding: 10px 15px;
   }
   
+  /* Pastikan main section memiliki background pink yang konsisten */
   main {
     padding: 10px;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 60px);
+    background-color: var(--primary) !important;
   }
   
   .container {
@@ -693,6 +729,16 @@ footer {
     padding: 10px 15px;
     font-size: 12px;
   }
-
 }
 
+/* Fix viewport meta untuk mobile */
+@media screen and (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  body {
+    background-color: var(--primary) !important;
+  }
+}
